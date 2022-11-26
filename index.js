@@ -18,7 +18,7 @@ function writeFileAndQuit() {
     const endHTML = `</body>
 </html>`;
 
-    const htmlSnippet = startHTML + teamHTML + endHTML;
+    const htmlSnippet = startHTML + '\n' + teamHTML + '\n' + endHTML;
 
     fs.writeFile('./dist/index.html', `${htmlSnippet}`, (err)=>{
     return console.log("done!");
@@ -52,12 +52,6 @@ function getUserInput(employeeRole) {
         inquirer
         .prompt([
             {
-            type: 'list',
-            message: 'What would you like to do?',
-            name: 'employeeRole',
-            choices: ["Add a Manager", "Add an Engineer", "Add an Intern", "Exit"],
-            },
-            {
             type: 'input',
             message: 'Employee Name:',
             name: 'employeeName',
@@ -85,10 +79,14 @@ function getUserInput(employeeRole) {
             var employeeEmail = responses.employeeEmail;
             var employeeExtra = responses.employeeExtra;
 
-            teamHTML += `<div>Employee Name: ${ employeeName }</div>
-            <div>Employee ID #${ employeeId }</div>
-            <div>Email: ${ employeeEmail }</div>
-            <div>Job Title: ${ employeeRole }</div>`;
+            teamHTML += `
+    <div class="employee-block">
+        <div>Employee Name: ${ employeeName }</div>
+        <div>Employee ID #${ employeeId }</div>
+        <div>Email: ${ employeeEmail }</div>
+        <div>Job Title: ${ employeeRole }</div>
+    </div>
+            `;
 
             switch (employeeRole) {
                 case "Manager":
@@ -112,6 +110,3 @@ function getUserInput(employeeRole) {
 }
 
 addOrExit(); 
-/* console.log(`The new guy's name is ${ newguy.getName() }, and her ID is ${ newguy.getId() }.`);
-console.log(`Don't believe me? Ask her yourself at ${ newguy.getEmail() }.`);
-console.log(`Oh, and her school? ${ newguy.getSchool() }.`); */
