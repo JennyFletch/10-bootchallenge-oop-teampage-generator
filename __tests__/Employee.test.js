@@ -69,3 +69,9 @@ describe("Testing the Employee Email properties", () => {
     })
 
 })
+
+// EMPLOYEE ROLE
+test("The employee should be an employee.", () => {
+    let newguyRole = newguy.getRole();
+    expect(newguyRole).toMatch("Employee");
+}) 

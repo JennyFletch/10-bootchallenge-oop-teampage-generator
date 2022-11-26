@@ -1,6 +1,7 @@
-const Employee = require("./lib/employee");
+const Intern = require("./lib/intern");
 
-let newguy = new Employee("Zack", "37264", "zack@cooljob.com");
+let newguy = new Intern("Buffy", "372648", "buffy@cooljob.com", "Hesperia High School");
 
-console.log(`The new guy's name is ${ newguy.getName() }, and his ID is ${ newguy.getId() }.`);
-console.log(`Don't believe me? Ask him yourself at ${ newguy.getEmail() }.`);
+console.log(`The new guy's name is ${ newguy.getName() }, and her ID is ${ newguy.getId() }.`);
+console.log(`Don't believe me? Ask her yourself at ${ newguy.getEmail() }.`);
+console.log(`Oh, and her school? ${ newguy.getSchool() }.`);
