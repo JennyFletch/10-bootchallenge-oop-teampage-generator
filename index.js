@@ -130,7 +130,7 @@ function createNewUser(employeeRole, employeeName, employeeId, employeeEmail, em
         </header>
         <main>
             <div class="emp-id">Employee ID #${ newguy.getId() }</div>
-            <div class="emp-email">Email: <a href="mailto:${ newguy.getEmail() }?subject=Attention%20Team%20Members">${ newguy.getEmail() }</a></div>
+            <div class="emp-email">Email: <a href="mailto:${ newguy.getEmail() }">${ newguy.getEmail() }</a></div>
             <div class="emp-extra">${ eExtraString }</div>
         </main>
     </div>
