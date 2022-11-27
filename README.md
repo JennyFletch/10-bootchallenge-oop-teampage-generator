@@ -1,7 +1,7 @@
 
 # 10-bootchallenge-oop-teampage-generator [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-An application that creates a hierarchical team page based on user input. Jest is used for handling of unit tests, and Inquirer is used to collect user input.
+An application that creates a team page based on user input. Jest is used for handling of unit tests, and Inquirer is used to collect user input.
 
 * [Installation](#installation)
 * [Usage](#usage)
