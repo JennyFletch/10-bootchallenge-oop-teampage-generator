@@ -108,11 +108,11 @@ function createNewUser(employeeRole, employeeName, employeeId, employeeEmail, em
     switch (employeeRole) {
         case "Add a Manager":
             var newguy = new Manager(employeeName, employeeId, employeeEmail, employeeExtra); 
-            var eExtraString = `Office #: ${ newguy.getOffice() }`;
+            var eExtraString = `Office #${ newguy.getOffice() }`;
             break;
         case "Add an Engineer":
             var newguy = new Engineer(employeeName, employeeId, employeeEmail, employeeExtra); 
-            var eExtraString = `GitHub User: <a href="https://github.com/${ newguy.getGithub() }/" target="_blank">https://github.com/${ newguy.getGithub() }/</a>`;
+            var eExtraString = `GitHub User: <a href="https://github.com/${ newguy.getGithub() }/" target="_blank">${ newguy.getGithub() }</a>`;
             break;
         case "Add an Intern":
             var newguy = new Intern(employeeName, employeeId, employeeEmail, employeeExtra); 
@@ -124,11 +124,15 @@ function createNewUser(employeeRole, employeeName, employeeId, employeeEmail, em
 
     teamHTML += `
     <div class="employee-block">
-        <div>Employee Name: ${ newguy.getName() }</div>
-        <div>Employee ID #${ newguy.getId() }</div>
-        <div>Email: <a href="mailto:${ newguy.getEmail() }?subject=Attention%20Team%20Members">${ newguy.getEmail() }</a></div>
-        <div>Job Title: ${ newguy.getRole() }</div>
-        <div>${ eExtraString }</div>
+        <header>
+            <div class="emp-name">${ newguy.getName() }</div>
+            <div class="emp-title">${ newguy.getRole() }</div>
+        </header>
+        <main>
+            <div class="emp-id">Employee ID #${ newguy.getId() }</div>
+            <div class="emp-email">Email: <a href="mailto:${ newguy.getEmail() }?subject=Attention%20Team%20Members">${ newguy.getEmail() }</a></div>
+            <div class="emp-extra">${ eExtraString }</div>
+        </main>
     </div>
     `;
           
@@ -147,17 +151,20 @@ function writeFileAndQuit() {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Team Page</title>
+  <link rel="stylesheet" href="./normalize.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
-<body>`;
+<body>
+<header><h1>MY TEAM</h1></header>
+<main class="team-outer">
+`;
 
-    const endHTML = `</body>
+    const endHTML = `
+</main>
+</body>
 </html>`;
 
     const htmlSnippet = startHTML + '\n' + teamHTML + '\n' + endHTML;
-
-    //fs.writeFile('./dist/index.html', `${htmlSnippet}`, (err)=>{
-    //return console.log("done!");
-    //} );
 
     fs.writeFile('./dist/index.html', `${htmlSnippet}`, (err)=>
         err ? console.error(err) : console.log('\nSuccess!')

@@ -1,15 +1,3 @@
-// Sample test for reference
-/* test("should confirm 1 + 1 = 2", () => {
-    expect(1 + 1).toBe(2);
-})  */
-
-// jest matcher methods
-// .toBe .not.toBe .toBeDefined .toBeUndefined .toBeNull .toBeTruthy .toBeFalsy 
-// .toEqual .toMatch .toContain .toThrow
-// Link to full list: https://jestjs.io/docs/expect
-
-// describe("", () => {}) // describe block to help group tests within a file
-
 const Employee = require("../lib/employee");
 let newguy = new Employee("Zack", "046104", "zack@cooljob.com");
 
